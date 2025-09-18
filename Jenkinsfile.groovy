@@ -35,7 +35,9 @@ node {
     //    }
     //}
     stage("prepare docker image"){
-      image=docker.build("${fullimage}")
+      echo "testing..."
+      image = docker.build("${fullimage}")
+      echo "testing...."
     }
     stage("Lint") {
       echo "Performing Lint check"
