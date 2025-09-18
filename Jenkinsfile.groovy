@@ -19,9 +19,9 @@ node {
     }
     stage("prepare"){
       echo "${scmVars}"
-      imagetag = "${scmVars.GIT_COMMIT}".take(7)
-      fullimage  = "sivasankarinkollu1/sample:${imagetag}"
-      echo "${image}" 
+      def imagetag = "${scmVars.GIT_COMMIT}".take(7)
+      def fullimage  = "sivasankarinkollu1/sample:${imagetag}"
+      echo "${fullimage}" 
     }
     //stage("Sonarqube"){
     //    withSonarQubeEnv('SonarQube Cloud') {
