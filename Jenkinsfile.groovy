@@ -20,17 +20,17 @@ node {
         sh 'pip install --upgrade uvicorn'
         
     }
-    stage("Sonarqube"){
-        withSonarQubeEnv('SonarQube Cloud') {
-              def scannerHome = tool 'sampetest-sonar'
-               sh """
-                ${scannerHome}/bin/sonar-scanner \
-                -Dsonar.projectKey=sampetest \
-                -Dsonar.sources=. \
-                -Dsonar.organization=kalki123884
-            """
-        }
-    }
+    #stage("Sonarqube"){
+    #    withSonarQubeEnv('SonarQube Cloud') {
+    #          def scannerHome = tool 'sampetest-sonar'
+    #           sh """
+    #            ${scannerHome}/bin/sonar-scanner \
+    #            -Dsonar.projectKey=sampetest \
+    #            -Dsonar.sources=. \
+    #            -Dsonar.organization=kalki123884
+    #        """
+    #    }
+    #}
     stage("prepare image"){
         echo "Deploying application"
         sh 'docker build -t sample:v1 .'
