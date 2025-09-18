@@ -35,7 +35,7 @@ node {
     //    }
     //}
     stage("prepare docker image"){
-      docker.build(fullimage)
+      docker.build("${fullimage}")
     }
     stage("Lint") {
       echo "Performing Lint check"
@@ -43,7 +43,7 @@ node {
     stage("push image"){
       echo "push image to repo"
       docker.withRegistry("https://index.docker.io/v1/","siva-docker-login"){
-        image.push(fullimage)
+        image.push("${fullimage}")
       }
     }
     //stage("prepare image"){
