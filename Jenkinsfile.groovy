@@ -2,6 +2,7 @@
 def imagetag
 def fullimage
 def scmVars
+def image
 properties([
     buildDiscarder(
         logRotator(
@@ -48,7 +49,7 @@ node {
     }
     stage("push image"){
       echo "push image to repo"
-      docker.withRegistry("https://index.docker.io/v1/","siva-docker-login"){
+      docker.withRegistry("https://index.docker.io/v1/","sivasankar-docker-login"){
         image.push("${imagetag}")
         image.push("latest")
       }
